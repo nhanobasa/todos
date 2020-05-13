@@ -1,0 +1,16 @@
+{
+  "name": "todos",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/nhanobasa/todos.git",
+  "author": "nhanobasa <nhan.itptit@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "serve:frontend": "yarn workspace @app/frontend start",
+    "serve:backend": "yarn workspace @app/backend serve"
+  }
+}
