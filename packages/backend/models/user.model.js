@@ -38,12 +38,10 @@ userSchema.pre("save", async function (next) {
   }
 })
 
-const User = mongoose.model("users", userSchema)
-
-userSchema.static.findByCredentials = async (usernames, password) => {
+userSchema.statics.findByCredentials = async (username, password) => {
   // Search for a user by email and password.
   try {
-    const user = await User.findOne(usernames)
+    const user = await User.findOne({ username })
     if (!user) {
       throw new Error("Invalid login credentials")
     }
@@ -56,5 +54,5 @@ userSchema.static.findByCredentials = async (usernames, password) => {
     throw err
   }
 }
-
+const User = mongoose.model("users", userSchema)
 module.exports = User
